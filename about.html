@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>青岛拉格森生物科技有限公司 | 关于我们</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 新增Font Awesome图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- 修正后的导航栏结构 -->
+    <nav>
+        <div class="logo">青岛拉格森生物科技有限公司</div>
+        <!-- 新增汉堡菜单按钮 -->
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+        <!-- 修改ul类名并删除旧版空格 -->
+        <ul class="nav-links">
+            <li><a href="index.html">主页Home</a></li>
+            <li><a href="about.html">关于我们About Us</a></li>
+            <li><a href="products.html">产品中心Products</a></li>
+            <li><a href="contact.html">联系我们Contact us</a></li>
+        </ul>
+    </nav>
+
+    <!-- 页面专属内容（保持不变） -->
+    <section class="about-content">
+        <h2>关于我们</h2>
+        <p>拉格森生物科技有限公司以中国优质农产品为核心，构建从田间到全球餐桌的一站式供应链。依托中国本土自建工厂的规模化生产实力，及美国、墨西哥海外办事处的本土化服务网络，我们致力于为北美、欧洲客户提供稳定、高效、可持续的辣椒制品与特色农产品解决方案。</p>
+        <div class="team">
+            <div class="member-card">
+                <h4>核心优势</h4>
+                <p>• 产业布局：总部位于中国青岛，拥有自营工厂，并在美国洛杉矶、墨西哥瓜达拉哈拉设立海外办事处</p>
+                <p>• 本土资源：于中国新疆、甘肃、内蒙古等地设有多处承包生产基地，保障原料稳定供应</p>
+                <p>• 专业产品：天然色素（辣椒红、叶黄素）、辣椒系列制品、甜椒及玫瑰茄原料</p>
+                <p>• 品质保障：严格执行ISO22000质量管理体系，先进工艺精制产品</p>
+            </div>
+            <div class="member-card">
+                <h4>全球网络</h4>
+                <p>产品远销欧盟（西班牙、德国、法国）、北美（美国、墨西哥）、东南亚（韩国、马来西亚）等30余个国家和地区，以卓越品质赢得国际认可。</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Qingdao Lagson Biotech Co.,Ltd</p>
+    </footer>
+
+    <!-- 修正后的JavaScript代码 -->
+    <script>
+        // 汉堡菜单交互
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // 自动高亮当前页面链接
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            // 标准化URL比较（兼容尾部斜杠）
+            const currentHref = new URL(link.href).pathname;
+            const pageHref = window.location.pathname;
+            if(currentHref === pageHref) {
+                link.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>

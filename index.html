@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>青岛拉格森生物科技有限公司 | 主页</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">青岛拉格森生物科技有限公司</div>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">主页Home</a></li> <!-- 移除手动active -->
+            <li><a href="about.html">关于我们About Us</a></li>
+            <li><a href="products.html">产品中心Products</a></li>
+            <li><a href="contact.html">联系我们Contact us</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-image">
+        <img src="images/hero.jpg" alt="国际贸易港口全景图">
+    </div>
+
+    <header>
+        <h1>全球贸易解决方案</h1>
+        <p>连接世界优质供应商与买家</p>
+    </header>
+
+    <section class="features">
+        <div class="card">
+            <h3>跨境采购</h3>
+            <p>专业全球供应链管理</p>
+        </div>
+        <div class="card">
+            <h3>贸易咨询</h3>
+            <p>资深专家团队支持</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Qingdao Lagson Biotech Co.,Ltd</p>
+    </footer>
+
+    <script>
+        // 汉堡菜单交互
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // 增强版自动高亮
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            // 标准化路径比较
+            const linkPath = new URL(link.href).pathname.replace(/index\.html$/, '');
+            const currentPath = window.location.pathname.replace(/index\.html$/, '');
+            
+            // 特殊处理根路径
+            const isHomePage = currentPath === '/' || currentPath === '/index.html';
+            
+            if((linkPath === currentPath) || (isHomePage && link.href.includes('index.html'))) {
+                link.classList.add('active');
+                link.style.pointerEvents = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

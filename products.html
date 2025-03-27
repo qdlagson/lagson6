@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>青岛拉格森生物科技有限公司 | 产品中心</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- 修正后的导航结构 -->
+    <nav>
+        <div class="logo">青岛拉格森生物科技有限公司</div>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">主页Home</a></li>
+            <li><a href="about.html">关于我们About Us</a></li>
+            <li><a href="products.html">产品中心Products</a></li>
+            <li><a href="contact.html">联系我们Contact us</a></li>
+        </ul>
+    </nav>
+
+    <section class="products">
+        <h2>我们的产品</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="images/oleo.jpg" alt="色素产品">
+                <h4>色素系列（OLEORESINS）</h4>
+                <p>辣椒红色素/叶黄素</p>
+            </div>
+            <div class="product-card">
+                <img src="images/chilli1.jpg" alt="辣椒粉">
+                <h4>辣椒系列（CHILLI PRODUCTS）</h4>
+                <p>提供辣椒干、辣椒粉、辣椒碎、辣椒籽、辣椒圈、辣椒丝等全系列产品</p>
+            </div>
+            <div class="product-card">
+                <img src="images/paprika.jpg" alt="甜椒干">
+                <h4>甜椒系列（PAPRIKA）</h4>
+                <p>提供甜椒干、甜椒粉、甜椒籽等产品</p>
+            </div>
+            <div class="product-card">
+                <img src="images/hibiscus.jpg" alt="玫瑰茄">
+                <h4>玫瑰茄（HIBISCUS）</h4>
+                <p>天然玫瑰茄原料及制品</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Qingdao Lagson Biotech Co.,Ltd</p>
+    </footer>
+
+    <!-- 统一JavaScript代码 -->
+    <script>
+        // 汉堡菜单交互
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // 增强版自动高亮
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            // 标准化路径比较
+            const linkPath = new URL(link.href).pathname.replace(/\/index\.html$/, '');
+            const currentPath = window.location.pathname.replace(/\/index\.html$/, '');
+            
+            if(linkPath === currentPath || 
+              (currentPath === '' && linkPath === '/index.html')) {
+                link.classList.add('active');
+                link.style.pointerEvents = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
